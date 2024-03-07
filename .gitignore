@@ -1,0 +1,53 @@
+
+target/
+*.iml
+.idea/
+*.class
+*.jar
+*.war
+*.ear
+*.log
+*.ipr
+*.iws
+*.bak
+*.orig
+*.tmp
+*.out
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# Maven specific files
+log/
+
+# Eclipse specific files
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
+
+# Intellij IDEA
+*.iml
+*.ipr
+*.iws
+.idea/
+*.class
+*.jar
+*.war
+*.ear
+*.log
+*.ipr
+*.iws
+*.bak
+*.orig
+*.tmp
+*.out
+
+
