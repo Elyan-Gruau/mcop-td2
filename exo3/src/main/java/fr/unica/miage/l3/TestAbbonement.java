@@ -5,7 +5,7 @@
 
 package fr.unica.miage.l3;
 
-public class TestAbbonement {
+public class TestAbonement {
 
 
 	public static void main(String[] args) {
