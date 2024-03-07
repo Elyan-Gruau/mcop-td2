@@ -9,6 +9,8 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class TestJFrame {
 
@@ -36,6 +38,19 @@ public class TestJFrame {
 		b.setActionCommand("vous avez cliqué sur un bouton");
 		b.addActionListener(ecouteur);
 
+	// un autre écouteur pour le bouton
+		b.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				b.removeActionListener(ecouteur);
+				b.setText("merci d'avoir cliqué");
+			}
+		});
+
+		b.addActionListener( e -> {
+			int num = j.getItemCount();
+			j.addItem("Option "+num);
+		});
 		
 		// on ajoute le tout dans la fenêtre qui devient visible
 		p.add(b);
