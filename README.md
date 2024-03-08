@@ -14,6 +14,7 @@ Pour utiliser maven pour lancer un exécutable dans un sous-module, il faut util
 Par exemple pour lancer l'exécutable de l'exercice 2 (`TestJFrame`), il faut utiliser la commande suivante :
 
 ```
+mvn install -pl exo2
 mvn exec:java -pl exo2
 ```
 
