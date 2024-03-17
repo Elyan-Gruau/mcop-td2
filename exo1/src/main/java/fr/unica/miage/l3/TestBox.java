@@ -9,9 +9,11 @@ import java.awt.*;
 
 public class TestBox {
     public static void main(String[] args){
+        boolean unreachable = true;
         Box<WitcherTradingCard> wtcBox = new Box<>(Color.blue);
-        WitcherTradingCard wtcCardGeralt = new WitcherTradingCard("Geralt of Rivia","Master witcher",2500.99);
+        WitcherTradingCard wtcCardGeralt = new WitcherTradingCard("Geralt","Master witcher",2500.99);
         WitcherTradingCard wtcCardYen = new WitcherTradingCard("Yennefer","Sorceress",2000);
+        WitcherTradingCard wtcCardTriss = new WitcherTradingCard("Triss","Sorceress",2000);
         wtcBox.addObject(wtcCardYen);
         wtcBox.addObject(wtcCardGeralt);
 
@@ -21,10 +23,30 @@ public class TestBox {
         nftBox.addObject(nftMonkey);
         nftBox.addObject(nftWhale);
 
-        wtcBox.addBox(nftBox);
+        //Il possible d'ajouter uniquement des boites qui contiennent Witcher trading card
+        Box<WitcherTradingCard> wtcBox2 = new Box<>(Color.RED);
+        wtcBox2.addObject(wtcCardTriss);
+        wtcBox.addBox(wtcBox2);
+        if (!unreachable){
+            //Exemple avec une boite de WTC
+            wtcBox.addBox(wtcBox);
+
+            //Exemple avec une boite de NFT
+            //wtcBox.addBox(nftBox); // Ne compile pas
+
+            //Il est impossible de mettre des NFT dans une boite qui attends des WTC
+            //wtcBox.addObject(nftWhale); // Ne compile pas
+        }
 
 
-        System.out.println(   wtcBox.toString());
-        System.out.println("Valeur:"+wtcBox.getValue());
+
+        System.out.println(   wtcBox);
+        System.out.println("\nValeur totale:"+wtcBox.getValue());
+
+        System.out.println("\nfind Geralt:"+ wtcBox.find("Geralt"));
+        System.out.println("\nfind Triss:"+ wtcBox.find("Triss"));
+        System.out.println("\nfind Dijsktra:"+ wtcBox.find("Dijsktra")); // N'existe pas
+        
+
     }
 }
